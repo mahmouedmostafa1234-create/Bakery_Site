@@ -371,6 +371,7 @@ nav a:hover {
   font-family: "Alegreya Sans", sans-serif;
   text-align: center;
   line-height: 2;
+  margin-bottom: 30px;
 }
 
 .section-title-3{
@@ -586,36 +587,365 @@ footer {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .hero { padding: 20px; }
-  nav { display: none; }
-  .grid-2, .cards-grid, .footer-grid {
-    grid-template-columns: 1fr;
-  }
+/* =====================================================
+   RESPONSIVE CSS - Family Bakery
+   حطه في آخر ملف Style.Css
+   وامسح الـ media queries القديمة (max-width: 768px) و (min-width: 768px)
+   ===================================================== */
 
-  .section-title , .section-title-3{
-    margin-left: 40px;
-  }
-
-  .section-desc , .section-desc-2 , .section-desc-3 , .bold-text , .contact-list{
-    max-width: 500px;
-    margin-left: 40px;
-  }
-
-  .hero-title { font-size: 40px; }
-
+/* زرار الهمبرجر مخفي على الشاشات الكبيرة */
+#menu-toggle,
+.hamburger {
+  display: none;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .section-title , .section-title-3{
-    margin-left: 40px;
+/* ================= Laptop صغير / Tablet كبير (<= 1200px) ================= */
+@media (max-width: 1200px) {
+  .logo {
+    margin: 0 60px;
   }
 
-  .section-desc , .section-desc-2 , .section-desc-3 , .bold-text , .contact-list{
-    max-width: 500px;
-    margin-left: 40px;
+  nav {
+    margin-right: 40px;
+    gap: 22px;
   }
 
-  .hero-title { font-size: 40px; }
+  .hero {
+    padding: 20px 40px;
+  }
+}
 
+/* ================= Tablet (<= 1024px) ================= */
+@media (max-width: 1024px) {
+  .logo {
+    margin: 0 30px;
+  }
+
+  .logo img {
+    width: 130px;
+  }
+
+  nav {
+    margin-right: 20px;
+    gap: 16px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 20px;
+  }
+
+  .hero-content {
+    margin-top: 180px;
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .hero-subtitle {
+    font-size: 22px;
+  }
+
+  .section-padding {
+    padding: 60px 0;
+  }
+
+  .grid-2 {
+    gap: 40px;
+  }
+
+  /* شيل الـ margin السالب اللي بيطلع المحتوى برة */
+  .text-box-2 {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .section-title,
+  .section-title-3 {
+    margin-left: 0;
+    font-size: 28px;
+  }
+
+  .section-desc,
+  .section-desc-2,
+  .section-desc-3,
+  .bold-text,
+  .contact-list {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  /* الكروت: اتنين في الصف */
+  .cards-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 10px);
+  }
+
+  .card img {
+    height: 300px;
+  }
+
+  /* الفوتر: عمودين */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ================= Mobile (<= 768px) ================= */
+@media (max-width: 768px) {
+
+  /* ---------- Header + Hamburger ---------- */
+  header {
+    padding: 0 15px;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    color: #fff;
+    /* نفس أنيميشن تغيير اللون عند السكرول */
+    animation: changeColor-2 linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 100px;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: currentColor;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* القايمة المنسدلة */
+  nav {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 10px 0;
+    flex-direction: column;
+    gap: 0;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+
+  nav a {
+    display: block;
+    padding: 14px 0;
+    color: #333;
+    animation: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  nav a:last-child {
+    border-bottom: none;
+  }
+
+  nav a:hover {
+    animation: none;
+    color: #8a704c;
+  }
+
+  #menu-toggle:checked ~ nav {
+    display: flex;
+  }
+
+  /* تحويل الهمبرجر لعلامة X */
+  #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+  }
+
+  #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 20px 15px;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .hero-content {
+    margin-top: 120px;
+    margin-bottom: 40px;
+    padding: 0 10px;
+  }
+
+  .welcome-text {
+    font-size: 22px;
+  }
+
+  .hero-title {
+    font-size: 44px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 200px;
+    text-align: center;
+  }
+
+  .scroll-icon {
+    display: none;
+  }
+
+  /* ---------- Sections ---------- */
+  .section-padding {
+    padding: 50px 0;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .section-title,
+  .section-title-2,
+  .section-title-3 {
+    font-size: 26px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .section-desc,
+  .section-desc-2,
+  .section-desc-3,
+  .bold-text,
+  .contact-list {
+    max-width: 100%;
+    margin-left: 0;
+    line-height: 1.8;
+  }
+
+  .icon-list li {
+    font-size: 18px;
+  }
+
+  /* ---------- Cards ---------- */
+  .cards-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    flex: none;
+  }
+
+  .card img {
+    height: 250px;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+  }
+
+  /* ---------- Contact / Map ---------- */
+  .map-placeholder iframe {
+    height: 320px;
+  }
+
+  .contact-list li {
+    word-break: break-word;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-col ul li {
+    margin-left: 0;
+    margin-bottom: 12px;
+  }
+
+  .footer-col-2 p {
+    word-break: break-word;
+  }
+
+  .face,
+  .gogale,
+  .linked,
+  .twet {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* اخفي الشريط الجانبي (الديمو) على الموبايل */
+  .side-bar,
+  .side-info,
+  .side-info-2 {
+    display: none !important;
+  }
+}
+
+/* ================= Mobile صغير (<= 480px) ================= */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .section-title,
+  .section-title-2,
+  .section-title-3 {
+    font-size: 23px;
+  }
+
+  .card img {
+    height: 220px;
+  }
+
+  .map-placeholder iframe {
+    height: 260px;
+  }
 }
