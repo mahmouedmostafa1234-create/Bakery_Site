@@ -587,19 +587,11 @@ footer {
   display: block;
 }
 
-/* =====================================================
-   RESPONSIVE CSS - Family Bakery
-   حطه في آخر ملف Style.Css
-   وامسح الـ media queries القديمة (max-width: 768px) و (min-width: 768px)
-   ===================================================== */
-
-/* زرار الهمبرجر مخفي على الشاشات الكبيرة */
 #menu-toggle,
 .hamburger {
   display: none;
 }
 
-/* ================= Laptop صغير / Tablet كبير (<= 1200px) ================= */
 @media (max-width: 1200px) {
   .logo {
     margin: 0 60px;
@@ -615,7 +607,6 @@ footer {
   }
 }
 
-/* ================= Tablet (<= 1024px) ================= */
 @media (max-width: 1024px) {
   .logo {
     margin: 0 30px;
@@ -659,7 +650,6 @@ footer {
     gap: 40px;
   }
 
-  /* شيل الـ margin السالب اللي بيطلع المحتوى برة */
   .text-box-2 {
     margin-left: 0;
     margin-top: 0;
@@ -680,7 +670,6 @@ footer {
     margin-left: 0;
   }
 
-  /* الكروت: اتنين في الصف */
   .cards-grid {
     flex-wrap: wrap;
     justify-content: center;
@@ -695,17 +684,14 @@ footer {
     height: 300px;
   }
 
-  /* الفوتر: عمودين */
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
   }
 }
 
-/* ================= Mobile (<= 768px) ================= */
 @media (max-width: 768px) {
 
-  /* ---------- Header + Hamburger ---------- */
   header {
     padding: 0 15px;
   }
@@ -726,7 +712,6 @@ footer {
     height: 22px;
     cursor: pointer;
     color: #fff;
-    /* نفس أنيميشن تغيير اللون عند السكرول */
     animation: changeColor-2 linear both;
     animation-timeline: scroll();
     animation-range: 0px 100px;
@@ -741,7 +726,6 @@ footer {
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
-  /* القايمة المنسدلة */
   nav {
     display: none;
     position: absolute;
@@ -778,7 +762,6 @@ footer {
     display: flex;
   }
 
-  /* تحويل الهمبرجر لعلامة X */
   #menu-toggle:checked ~ .hamburger span:nth-child(1) {
     transform: translateY(9.5px) rotate(45deg);
   }
@@ -791,7 +774,6 @@ footer {
     transform: translateY(-9.5px) rotate(-45deg);
   }
 
-  /* ---------- Hero ---------- */
   .hero {
     padding: 20px 15px;
     min-height: 100vh;
@@ -831,7 +813,6 @@ footer {
     display: none;
   }
 
-  /* ---------- Sections ---------- */
   .section-padding {
     padding: 50px 0;
   }
@@ -863,7 +844,6 @@ footer {
     font-size: 18px;
   }
 
-  /* ---------- Cards ---------- */
   .cards-grid {
     flex-direction: column;
     align-items: center;
@@ -884,7 +864,6 @@ footer {
     transform: translateY(-8px);
   }
 
-  /* ---------- Contact / Map ---------- */
   .map-placeholder iframe {
     height: 320px;
   }
@@ -893,7 +872,6 @@ footer {
     word-break: break-word;
   }
 
-  /* ---------- Footer ---------- */
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -917,7 +895,6 @@ footer {
     height: 40px;
   }
 
-  /* اخفي الشريط الجانبي (الديمو) على الموبايل */
   .side-bar,
   .side-info,
   .side-info-2 {
@@ -925,7 +902,6 @@ footer {
   }
 }
 
-/* ================= Mobile صغير (<= 480px) ================= */
 @media (max-width: 480px) {
   .hero-title {
     font-size: 36px;
